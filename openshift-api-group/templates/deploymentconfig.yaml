@@ -36,6 +36,7 @@ spec:
             scheme: HTTP
       - name: tiller
         image: 'gcr.io/kubernetes-helm/tiller:{{ .Values.tillerVersion }}'
+        command: /tiller -storage secret
         env:
         - name: TILLER_NAMESPACE
           value: {{ .Release.Namespace }}
